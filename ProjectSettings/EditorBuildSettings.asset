@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Hamaaan/Scenes/004.unity
+    guid: 941c5228c4788bc488d20c53b03f4bfa
   m_configObjects: {}
