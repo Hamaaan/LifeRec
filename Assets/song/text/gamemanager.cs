@@ -18,8 +18,9 @@ public class gamemanager : MonoBehaviour
     public Text loadtimer;
 
     public Image confilmImage;
+    public gamemanager timersave;
 
-    public List<Text> timelist = new List<Text>();
+    
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +60,7 @@ public class gamemanager : MonoBehaviour
     }
 
 
-    void watch()
+    public void watch()
     {
         if (start)
         {
@@ -78,14 +79,15 @@ public class gamemanager : MonoBehaviour
 
    public void timesave()
     {
-        for (int i = 0; i < timelist.Count; i++)
-            PlayerPrefs.SetString("timer", timelist[i].ToString());
+        PlayerPrefs.SetFloat("Time", timersave.timer);
+
     }
+
+
 
     public void timeload()
     {
-        loadtime = PlayerPrefs.GetFloat("timer".ToString());
-        loadtimer.text = loadtime.ToString();
+
     }
 
 
