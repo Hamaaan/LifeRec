@@ -9,6 +9,7 @@ public class gamemanager : MonoBehaviour
 
     public float timer;
     public float loadtime;
+    public string condition;
 
     public bool start= false;
 
@@ -16,6 +17,7 @@ public class gamemanager : MonoBehaviour
     public Text button;
     public Text  second;
     public Text loadtimer;
+    public Text conditioner;
 
     public Image confilmImage;
     public gamemanager timersave;
@@ -80,14 +82,42 @@ public class gamemanager : MonoBehaviour
    public void timesave()
     {
         PlayerPrefs.SetFloat("Time", timersave.timer);
-
+        PlayerPrefs.Save();
+        Debug.Log(timer);
+        timereset();
     }
 
+    public void conditiongood()
+    {
+        PlayerPrefs.SetString("Condition", "Good");
+        PlayerPrefs.Save();
+        timeload();
+    }
+
+    public void conditionsoso()
+    {
+        PlayerPrefs.SetString("Condition", "Soso");
+        PlayerPrefs.Save();
+        timeload();
+    }
+
+    public void conditionbad()
+    {
+        PlayerPrefs.SetString("Condition", "Bad");
+        PlayerPrefs.Save();
+        timeload();
+    }
 
 
     public void timeload()
     {
+        loadtime =PlayerPrefs.GetFloat("Time", timersave.timer);
+        condition = PlayerPrefs.GetString("Condition");
 
+        loadtimer.text = loadtime.ToString();
+        conditioner.text = condition.ToString();
+
+        Debug.Log(loadtime);
     }
 
 
@@ -100,5 +130,8 @@ public class gamemanager : MonoBehaviour
         if (!start)
             button.text = "start";
     }
+
+    
+
 
 }
