@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Hamaaan/Scenes/RESULT.unity
     guid: e6d4fed0e032de342902796318073fd6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Hamaaan/Scenes/STATUS.unity
     guid: caaca5bf39bc3c64a9bcaf2a3b4c53f0
   m_configObjects: {}
