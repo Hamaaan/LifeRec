@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChageManager : MonoBehaviour
+public class SceneChangeManager : MonoBehaviour
 {
     [SerializeField] string SceneName;
 
@@ -47,8 +47,7 @@ public class SceneChageManager : MonoBehaviour
         {
             if (!isAdditive)
             {
-                SceneManager.LoadScene(Scenes[0].name);
-                SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
+                SceneManager.LoadScene(SceneName);
             }
             else
             {
