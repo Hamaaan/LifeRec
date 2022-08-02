@@ -9,25 +9,46 @@ public class gamemanager : MonoBehaviour
 
     public float timer;
     public float loadtime;
-    public string condition;
+    public float condition;
 
     public bool start= false;
 
+    public Text[] clock;
 
     public Text button;
-    public Text  second;
+   
     public Text loadtimer;
     public Text conditioner;
 
+    public Text timewatch;
     public Image confilmImage;
+
+    public Image selectimageone;
+    public Image selectimagetwo;
+    public Image selectimagethree;
+
     public gamemanager timersave;
 
+
+    public Sprite[] images;
+
+
+    public List<float> worklist = new List<float>(); 
+
+    public List<float> timelist = new List<float>();
+
+    public List<int> conditionlist = new List<int>();
     
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-       // second = GetComponent<Text>();
+        // second = GetComponent<Text>();
+        
+        
+       
     }
 
     // Update is called once per frame
@@ -35,18 +56,24 @@ public class gamemanager : MonoBehaviour
     {
         watch();
         buttonpush();
-
-
-        
-        
+        buttonstatus();
+ 
     }
 
     public void timestart()
     {
         if (!start)
+        {
             start = true;
+            
+        }
+           
         else if (start)
+        {
             start = false;
+            
+        }
+            
     }
 
     public void confilm()
@@ -58,7 +85,10 @@ public class gamemanager : MonoBehaviour
     public void timereset()
     {
         timer = 0;
-        second.text = "00";
+        clock[0].text = "00";
+        clock[1].text = "00";
+        clock[2].text = "00";
+
     }
 
 
@@ -67,14 +97,9 @@ public class gamemanager : MonoBehaviour
         if (start)
         {
             timer += Time.deltaTime;
-            if (timer >= 10f)
-                second.text = timer.ToString("F0");
-
-            else if (timer < 10f)
-                second.text = "0" + timer.ToString("F0");
-
-            if (timer > 60)
-                second.text = (timer - 60f).ToString();
+            clock[0].text = ((int)timer / 3600).ToString();
+            clock[1].text = ((int)timer / 60 % 60).ToString();
+            clock[2].text = ((int)timer % 60).ToString();
 
         }
     }
@@ -84,35 +109,47 @@ public class gamemanager : MonoBehaviour
         PlayerPrefs.SetFloat("Time", timersave.timer);
         PlayerPrefs.Save();
         Debug.Log(timer);
-        timereset();
+        
+        timelist.Add(timer);
     }
+
+    // good 2f, soso 1f, bad 0f 
 
     public void conditiongood()
     {
-        PlayerPrefs.SetString("Condition", "Good");
+        //PlayerPrefs.SetInt("Condition", 1);
         PlayerPrefs.Save();
+        conditionlist.Add(3);
         timeload();
+        timereset();
+        
     }
 
     public void conditionsoso()
     {
-        PlayerPrefs.SetString("Condition", "Soso");
+        //PlayerPrefs.SetInt("Condition", 2);
         PlayerPrefs.Save();
+        conditionlist.Add(2);
         timeload();
+        timereset();
+        
     }
 
     public void conditionbad()
     {
-        PlayerPrefs.SetString("Condition", "Bad");
+        //PlayerPrefs.SetInt("Condition", 3);
         PlayerPrefs.Save();
+        conditionlist.Add(1);
         timeload();
+        timereset();
+        
     }
 
 
     public void timeload()
     {
         loadtime =PlayerPrefs.GetFloat("Time", timersave.timer);
-        condition = PlayerPrefs.GetString("Condition");
+        condition = PlayerPrefs.GetInt("Condition");
 
         loadtimer.text = loadtime.ToString();
         conditioner.text = condition.ToString();
@@ -125,13 +162,85 @@ public class gamemanager : MonoBehaviour
     {
         if (start)
         {
-            button.text = "stop";
+            button.text = " ";
+            timewatch.gameObject.SetActive(true);
+
+
+
         }
         if (!start)
+        {
             button.text = "start";
+            timewatch.gameObject.SetActive(false);
+
+        }
+
+
     }
 
-    
+
+    public void workbutton()
+    {
+        worklist.Add(1);
+    }
+
+    public void trainbutton()
+    {
+        worklist.Add(2);
+    }
+
+    public void talkbutton()
+    {
+        worklist.Add(3);
+    }
+
+    public void hobbybutton()
+    {
+        worklist.Add(4);
+    }
+
+    public void sleepbutton()
+    {
+        worklist.Add(5);
+    }
+
+
+
+
+    void buttonstatus()
+    {
+        if(worklist.Count == 1)
+        {
+            selectimageone.sprite = images[(int)worklist[0]];
+        }
+        if(worklist.Count == 2)
+        {
+            selectimagetwo.sprite = images[(int)worklist[1]];
+        }
+        if (worklist.Count == 3)
+        {
+            selectimagethree.sprite = images[(int)worklist[2]];
+        }
+
+    }
+
+    public void buttononeremove()
+    {
+        worklist[0] = 0;
+        selectimageone.sprite = images[(int)worklist[0]];
+    }
+
+    public void buttontworemove()
+    {
+        worklist[1] = 0;
+        selectimagetwo.sprite = images[(int)worklist[1]];
+    }
+
+    public void buttonthreeremove()
+    {
+        worklist[2] = 0;
+        selectimagethree.sprite = images[(int)worklist[2]];
+    }
 
 
 }
