@@ -38,7 +38,9 @@ public class gamemanager : MonoBehaviour
     public List<float> timelist = new List<float>();
 
     public List<int> conditionlist = new List<int>();
-    
+
+    public List<int> moodlist = new List<int>();
+
 
 
 
@@ -115,35 +117,91 @@ public class gamemanager : MonoBehaviour
 
     // good 2f, soso 1f, bad 0f 
 
-    public void conditiongood()
+    public void conditionsogood()
     {
         //PlayerPrefs.SetInt("Condition", 1);
         PlayerPrefs.Save();
+        conditionlist.Add(4);
+        
+
+    }
+
+
+    public void conditiongood()
+    {
+        //PlayerPrefs.SetInt("Condition", 1);
+        //PlayerPrefs.Save();
         conditionlist.Add(3);
-        timeload();
-        timereset();
+        
         
     }
+
 
     public void conditionsoso()
     {
         //PlayerPrefs.SetInt("Condition", 2);
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
         conditionlist.Add(2);
-        timeload();
-        timereset();
+        
         
     }
 
     public void conditionbad()
     {
         //PlayerPrefs.SetInt("Condition", 3);
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
         conditionlist.Add(1);
-        timeload();
-        timereset();
+        
         
     }
+
+    public void conditionsobad()
+    {
+        //PlayerPrefs.SetInt("Condition", 3);
+        //PlayerPrefs.Save();
+        conditionlist.Add(0);
+        
+
+    }
+
+    public void moodsogood()
+    {
+        moodlist.Add(4);
+        timeload();
+        timereset();
+    }
+
+    public void moodgood()
+    {
+        moodlist.Add(3);
+        timeload();
+        timereset();
+    }
+
+    public void moodsoso()
+    {
+        moodlist.Add(2);
+        timeload();
+        timereset();
+    }
+
+    public void moodbad()
+    {
+        moodlist.Add(1);
+        timeload();
+        timereset();
+    }
+
+    public void moodsobad()
+    {
+        moodlist.Add(0);
+        timeload();
+        timereset();
+    }
+
+
+
+
 
 
     public void timeload()
