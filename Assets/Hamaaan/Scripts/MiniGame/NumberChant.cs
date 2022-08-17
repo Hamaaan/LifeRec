@@ -15,16 +15,12 @@ public class NumberChant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
         string NumbersRow;
 
         NumbersRow = ((int)Random.Range(1, 9)).ToString() + ((int)Random.Range(1, 9)).ToString() + ((int)Random.Range(1, 9)).ToString() + ((int)Random.Range(1, 9)).ToString();
 
-
-
-
-
+        text = text.GetComponent<Text>();
+        text.text = NumbersRow;
 
     }
 
