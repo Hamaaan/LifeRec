@@ -19,6 +19,9 @@ public class RestartButton : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.LoadScene("IQ_KigouSagashi");
+        // 現在のSceneを取得
+        Scene loadScene = SceneManager.GetActiveScene();
+        // 現在のシーンを再読み込みする
+        SceneManager.LoadScene(loadScene.name);
     }
 }

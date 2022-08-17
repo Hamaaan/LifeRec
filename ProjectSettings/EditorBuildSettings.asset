@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Hamaaan/Scenes/minigames/IQ_KigouSagashi.unity
     guid: 3b73f75adec2df048896f96945ebfc4c
+  - enabled: 1
+    path: Assets/Hamaaan/Scenes/minigames/IQ_NumberChant.unity
+    guid: 5c1ab8d08f03f344fad3d20debbb19b6
   m_configObjects: {}
