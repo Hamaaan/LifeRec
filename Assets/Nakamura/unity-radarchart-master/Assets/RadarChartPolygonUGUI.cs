@@ -26,8 +26,8 @@ namespace naichilab
 		[Range (0f, 1f)]
 		private float MaxVolume = 1f;
 
-		[SerializeField]
-		private float[] Volumes;
+	
+		public float[] Volumes;
 
 		private void SetVolume (int idx, float value)
 		{
