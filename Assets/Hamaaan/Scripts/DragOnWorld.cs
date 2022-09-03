@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class DragOnWorld : MonoBehaviour, IDragHandler, IDropHandler
+public class DragOnWorld : MonoBehaviour, IDragHandler, IDropHandler, IEndDragHandler
 {
+    Rigidbody2D GetRd;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetRd = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -17,33 +20,31 @@ public class DragOnWorld : MonoBehaviour, IDragHandler, IDropHandler
     {
         
     }
+
     public void OnDrag(PointerEventData eventData)
     {
-        Rigidbody2D rd = GetComponent<Rigidbody2D>();
-
-        if (GetComponent<Rigidbody2D>())
+        if (GetRd != null)
         {
-            rd.isKinematic = true;
+            GetRd.simulated = false;
         }
 
         Vector3 TargetPos = Camera.main.ScreenToWorldPoint(eventData.position);
         TargetPos.z = 0;
         transform.position = TargetPos;
 
-        if (GetComponent<Rigidbody2D>())
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (GetRd != null)
         {
-            rd.isKinematic = false;
+            GetRd.simulated = true;
         }
-
-        //Debug.Log("drag");
-
-
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        //Destroy(gameObject);
-        //Debug.Log("drop");
+        
 
     }
 }
