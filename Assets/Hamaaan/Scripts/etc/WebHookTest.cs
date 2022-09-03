@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class WebHookTest : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class WebHookTest : MonoBehaviour
 
     [SerializeField] string contentText;
 
+    [SerializeField] InputField InputField;
 
     private sealed class Data
     {
@@ -18,7 +20,7 @@ public class WebHookTest : MonoBehaviour
     }
     void Awake()
     {
-        
+        InputField = InputField.GetComponent<InputField>();
     }
 
     // Start is called before the first frame update
@@ -30,7 +32,7 @@ public class WebHookTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        contentText = InputField.text;
     }
 
     public void WebHook()
