@@ -52,16 +52,34 @@ public class BalanceManager : MonoBehaviour
 
         if (isBalanced)
         {
-            joint.limits = BalanceLimits;
+            if (lerpTime < 0.5f)
+            {
+                lerpTime += Time.fixedDeltaTime * 0.2f;
+            }
+            joint.limits = LerpLimittsChange(lerpTime + 0.5f);
+
             TargetWeightText.text = "クリア！！！";
         }
         else
         {
             joint.limits = defaultLimits;
-            TargetWeightText.text = targetWeight.ToString();
+            lerpTime = 0f;
+            //TargetWeightText.text = targetWeight.ToString();
+            TargetWeightText.text = "";
+
         }
 
-        Debug.Log(measureWeight);
+    }
+
+    float lerpTime = 0f;
+
+    JointAngleLimits2D LerpLimittsChange(float t)
+    {
+        JointAngleLimits2D lm = new JointAngleLimits2D();
+        lm.max = Mathf.Lerp(defaultLimits.max, 0, t*t);
+        lm.min = Mathf.Lerp(defaultLimits.min, 0, t*t);
+
+        return lm;
     }
 
 }
