@@ -6,16 +6,19 @@ using UnityEngine.UI;
 
 public class NumberChant : MonoBehaviour
 {
-
-    [SerializeField] int NumberRow;
+    private string NumbersRow;
 
     [SerializeField] Text text;
- 
+
+    public ClickButton ClickButton;
+
+    private string InputNumbers;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        string NumbersRow;
+
 
         NumbersRow = ((int)Random.Range(1, 9)).ToString() + ((int)Random.Range(1, 9)).ToString() + ((int)Random.Range(1, 9)).ToString() + ((int)Random.Range(1, 9)).ToString();
 
@@ -30,7 +33,18 @@ public class NumberChant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(ClickButton.count == 4)
+        {
+            InputNumbers = string.Join("", ClickButton.InputNumbers);
+            if(NumbersRow == InputNumbers)
+            {
+                Debug.Log("right");
+            }
+            else
+            {
+                Debug.Log("false");
+            }
+        }
     }
 
 
