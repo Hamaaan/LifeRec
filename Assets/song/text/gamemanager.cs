@@ -201,9 +201,6 @@ public class gamemanager : MonoBehaviour
 
 
 
-
-
-
     public void timeload()
     {
         loadtime =PlayerPrefs.GetFloat("Time", timersave.timer);
@@ -222,8 +219,6 @@ public class gamemanager : MonoBehaviour
         {
             button.text = " ";
             timewatch.gameObject.SetActive(true);
-
-
 
         }
         if (!start)
@@ -261,8 +256,6 @@ public class gamemanager : MonoBehaviour
     {
         worklist.Add(5);
     }
-
-
 
 
     void buttonstatus()
