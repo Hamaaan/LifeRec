@@ -17,6 +17,14 @@ public class inputnumber : MonoBehaviour
     public int[] inputsecond;
     public int countsecond;
 
+    //insert keypad3
+    [SerializeField] private Text numberthird;
+    public int[] inputthird;
+    public int countthird;
+    public int allthirdup;
+    public int allthirddown;
+
+
     // question random number
     public Text randomone;
     public Text randomtwo;
@@ -56,12 +64,27 @@ public class inputnumber : MonoBehaviour
 
     public Text pricecorrecttext;
 
+    // percent quesiton random
+    public int blue;
+    public int red;
+    public int questionrandomcolor;
+
+    public Text bluetext;
+    public Text redtext;
+    public Text quesitoncolor;
+
+    public int allcolor;
+
+    public Text questionanswertext;
+    
+    
 
     //question random
 
     public int randomquestion;
     public GameObject calculatequestion;
     public GameObject coinquestion;
+    public GameObject questionquestion;
 
 
     // Start is called before the first frame update
@@ -72,11 +95,12 @@ public class inputnumber : MonoBehaviour
         
         input = new int[4];
         inputsecond = new int[4];
+        inputthird = new int[4];
 
         randomquest();
 
         coinswitch();
-
+        randomcolor();
 
         //calculate.gameObject.SetActive(true);
     }
@@ -91,6 +115,7 @@ public class inputnumber : MonoBehaviour
     {
         randomtext();
         randomtextsecond();
+        randomtextthird();
     }
 
     void randomtext()
@@ -108,6 +133,13 @@ public class inputnumber : MonoBehaviour
     void randomtextsecond()
     {
         allsecond = inputsecond[3] + inputsecond[2] * 10 + inputsecond[1] * 100 + inputsecond[0] * 1000;
+
+    }
+
+    public void randomtextthird()
+    {
+        allthirddown = inputthird[3] + inputthird[2] * 10;
+        allthirdup = inputthird[1] + inputthird[0] * 10;
 
     }
 
@@ -134,6 +166,22 @@ public class inputnumber : MonoBehaviour
 
     }
 
+    public void clickthird(int numberingthird)
+    {
+        
+
+        if(countthird <4)
+        {
+            
+                inputthird[countthird] = numberingthird;
+                numberthird.text = string.Join(" ", inputthird);
+                countthird++;
+            
+        }
+
+
+    }
+
     public void resetbutton()
     {
         for (int i = 0; i < 4; i++)
@@ -154,12 +202,21 @@ public class inputnumber : MonoBehaviour
         }
     }
 
+    public void resetbuttonthird()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            inputthird[i] = 0;
+            numberthird.text = string.Join("", inputthird);
+            countthird = 0;
+        }
+    }
+
+
     public void randomnumber()
     {
         ranone = Random.Range(50, 90) * 10;
         rantwo = Random.Range(50, 90) * 10;
-
-
 
     }
 
@@ -221,8 +278,55 @@ public class inputnumber : MonoBehaviour
 
     }
 
+    public void correctthird()
+    {
+        if(questionrandomcolor == 1)
+        {
+            if(allthirddown == blue+ red && allthirdup == blue)
+            {
+                questionanswertext.text = "correct";
+                randomcolor();
+                resetbuttonthird();
+                randomquest();
+                correctcount++;
+                questionquestion.gameObject.SetActive(false);
+
+            }
+            else
+            {
+                questionanswertext.text = "uncorrect";
+                randomcolor();
+                resetbuttonthird();
+                randomquest();
+                questionquestion.gameObject.SetActive(false);
+            }
+        }
+
+        if (questionrandomcolor == 2)
+        {
+            if (allthirddown == blue + red && allthirdup == red)
+            {
+                questionanswertext.text = "correct";
+                randomcolor();
+                resetbuttonthird();
+                randomquest();
+                correctcount++;
+                questionquestion.gameObject.SetActive(false);
+
+            }
+            else
+            {
+                questionanswertext.text = "uncorrect";
+                randomcolor();
+                resetbuttonthird();
+                randomquest();
+                questionquestion.gameObject.SetActive(false);
+            }
+        }
 
 
+
+    }
 
     public void coinswitch()
     {
@@ -341,7 +445,7 @@ public class inputnumber : MonoBehaviour
 
     public void randomquest()
     {
-        randomquestion = Random.Range(1, 3);
+        randomquestion = Random.Range(1, 4);
 
         if (randomquestion == 1)
         {
@@ -352,6 +456,28 @@ public class inputnumber : MonoBehaviour
         {
             coinquestion.gameObject.SetActive(true);
         }
+        if(randomquestion == 3)
+        {
+            questionquestion.gameObject.SetActive(true);
+        }
+
+
+    }
+
+    public void randomcolor()
+    {
+        blue = Random.Range(3, 12);
+        red = Random.Range(3, 12);
+        questionrandomcolor = Random.Range(1, 3);
+
+
+        bluetext.text = blue.ToString();
+        redtext.text = red.ToString();
+
+        if (questionrandomcolor == 1)
+            quesitoncolor.text = "青";
+        else
+            quesitoncolor.text = "赤";
 
     }
 
