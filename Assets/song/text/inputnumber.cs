@@ -28,7 +28,7 @@ public class inputnumber : MonoBehaviour
     [SerializeField] private Text numberforth;
     public int[] inputforth;
     public int countforth;
-    
+    public int allforth;
 
     // question random number
     public Text randomone;
@@ -104,6 +104,8 @@ public class inputnumber : MonoBehaviour
     public Text saletext;
     public Text pricetext;
 
+    public Text percentcorrecttext;
+
 
     // Start is called before the first frame update
     void Start()
@@ -138,6 +140,7 @@ public class inputnumber : MonoBehaviour
         randomtext();
         randomtextsecond();
         randomtextthird();
+        randomtextforth();
     }
 
     void randomtext()
@@ -163,6 +166,27 @@ public class inputnumber : MonoBehaviour
         allthirddown = inputthird[3] + inputthird[2] * 10;
         allthirdup = inputthird[1] + inputthird[0] * 10;
 
+    }
+
+    public void randomtextforth()
+    {
+        if (originalprice >= 10000)
+        {
+            
+            allforth = inputforth[4] + inputforth[3] * 10 + inputforth[2] * 100 + inputforth[1] * 1000 + inputforth[0] * 10000;
+        }
+        else if(10000>originalprice && originalprice >= 1000)
+        {
+            
+            
+            allforth = inputforth[4] + inputforth[3] * 10 + inputforth[2] * 100 + inputforth[1] * 1000;
+        }
+        else if(originalprice<1000)
+        {
+            
+            allforth = inputforth[4] + inputforth[3] * 10 + inputforth[2] * 100;
+        }
+       
     }
 
 
@@ -202,14 +226,36 @@ public class inputnumber : MonoBehaviour
 
     public void clickforth(int numberingforth)
     {
-        if (countforth < 5)
-        {
 
-            inputforth[countforth] = numberingforth;
+        if (originalprice >= 10000)
+        {
+            if (countforth < 5)
+            {
+                inputforth[countforth] = numberingforth;
+                numberforth.text = string.Join(" ", inputforth);
+                countforth++;
+
+            }
+        }
+
+        else if (10000 > originalprice && originalprice >= 1000)
+        {
+            if (countforth < 4)
+            {
+                inputforth[countforth+1] = numberingforth;
+                numberforth.text = string.Join(" ", inputforth);
+                countforth++;
+
+            }
+        }
+        else if (originalprice<1000)
+        {
+            inputforth[countforth+2] = numberingforth;
             numberforth.text = string.Join(" ", inputforth);
             countforth++;
-
         }
+
+
     }
 
 
@@ -245,12 +291,13 @@ public class inputnumber : MonoBehaviour
 
     public void resetbuttonforth()
     {
-        for (int i = 0; i < 5; i++)
-        {
-            inputforth[i] = 0;
-            numberforth.text = string.Join("", inputforth);
-            countforth = 0;
-        }
+            for (int i = 0; i < 5; i++)
+            {
+                inputforth[i] = 0;
+                numberforth.text = string.Join("", inputforth);
+                countforth = 0;
+            }
+
     }
 
 
@@ -367,6 +414,22 @@ public class inputnumber : MonoBehaviour
 
 
 
+    }
+
+    public void correctforth()
+    {
+        if(allforth == originalprice)
+        {
+            percentcorrecttext.text = "correct";
+            randomprice();
+            resetbuttonforth();
+        }
+        else
+        {
+            percentcorrecttext.text = "uncorrect";
+            randomprice();
+            resetbuttonforth();
+        }
     }
 
     public void coinswitch()
