@@ -24,6 +24,11 @@ public class inputnumber : MonoBehaviour
     public int allthirdup;
     public int allthirddown;
 
+    //insert keypad4
+    [SerializeField] private Text numberforth;
+    public int[] inputforth;
+    public int countforth;
+    
 
     // question random number
     public Text randomone;
@@ -76,8 +81,6 @@ public class inputnumber : MonoBehaviour
     public int allcolor;
 
     public Text questionanswertext;
-    
-    
 
     //question random
 
@@ -85,6 +88,21 @@ public class inputnumber : MonoBehaviour
     public GameObject calculatequestion;
     public GameObject coinquestion;
     public GameObject questionquestion;
+
+    //price random
+    public float originalprice;
+    public float pricepercent;
+    public float sale;
+    public float afterprice;
+
+    public int pricepercentswitch;
+    public int saleswitch;
+    public float salefirst;
+    public float originapricefirst;
+
+    public Text percenttext;
+    public Text saletext;
+    public Text pricetext;
 
 
     // Start is called before the first frame update
@@ -96,18 +114,22 @@ public class inputnumber : MonoBehaviour
         input = new int[4];
         inputsecond = new int[4];
         inputthird = new int[4];
-
-        randomquest();
+        inputforth = new int[5];
+        
+        //randomquest();
 
         coinswitch();
         randomcolor();
+        randomprice();
 
-        //calculate.gameObject.SetActive(true);
+        //calculatequestion.gameObject.SetActive(true);
+
     }
 
     private void Awake()
     {
         randomnumber();
+        
     }
 
     // Update is called once per frame
@@ -168,8 +190,6 @@ public class inputnumber : MonoBehaviour
 
     public void clickthird(int numberingthird)
     {
-        
-
         if(countthird <4)
         {
             
@@ -178,9 +198,20 @@ public class inputnumber : MonoBehaviour
                 countthird++;
             
         }
-
-
     }
+
+    public void clickforth(int numberingforth)
+    {
+        if (countforth < 5)
+        {
+
+            inputforth[countforth] = numberingforth;
+            numberforth.text = string.Join(" ", inputforth);
+            countforth++;
+
+        }
+    }
+
 
     public void resetbutton()
     {
@@ -212,11 +243,21 @@ public class inputnumber : MonoBehaviour
         }
     }
 
+    public void resetbuttonforth()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            inputforth[i] = 0;
+            numberforth.text = string.Join("", inputforth);
+            countforth = 0;
+        }
+    }
+
 
     public void randomnumber()
     {
-        ranone = Random.Range(50, 90) * 10;
-        rantwo = Random.Range(50, 90) * 10;
+        ranone = Random.Range(50, 91) * 10;
+        rantwo = Random.Range(50, 91) * 10;
 
     }
 
@@ -475,9 +516,79 @@ public class inputnumber : MonoBehaviour
         redtext.text = red.ToString();
 
         if (questionrandomcolor == 1)
+        {
             quesitoncolor.text = "青";
+            quesitoncolor.color = new Color(0, 0, 255);
+        }
         else
+        {
             quesitoncolor.text = "赤";
+            quesitoncolor.color = new Color(255, 0, 0);
+        }
+
+    }
+
+    public void randomprice()
+    {
+        afterprice = Random.Range(1,11)*50;
+
+        saleswitch = Random.Range(1, 5);
+        pricepercentswitch = Random.Range(1, 5);
+
+        switch (saleswitch)
+        {
+            case 1:
+                Debug.Log(saleswitch);
+                sale = 90;
+                break;
+
+            case 2:
+                Debug.Log(saleswitch);
+                sale = 75;
+                break;
+
+            case 3:
+                Debug.Log(saleswitch);
+                sale = 50;
+                break;
+
+            case 4:
+                Debug.Log(saleswitch);
+                sale = 80;
+                break;
+        }
+
+        switch (pricepercentswitch)
+        {
+            case 1:
+                Debug.Log(pricepercentswitch);
+                pricepercent = 10;
+                break;
+
+            case 2:
+                Debug.Log(pricepercentswitch);
+                pricepercent = 20;
+                break;
+
+            case 3:
+                Debug.Log(pricepercentswitch);
+                pricepercent = 25;
+                break;
+
+            case 4:
+                Debug.Log(pricepercentswitch);
+                pricepercent = 50;
+                break;
+        }
+
+        originapricefirst = afterprice * (100 / (100 - sale));
+        originalprice = originapricefirst * (100 / pricepercent);
+        Debug.Log(originalprice);
+
+        percenttext.text = pricepercent.ToString();
+        saletext.text = sale.ToString();
+        pricetext.text = afterprice.ToString();
+
 
     }
 
