@@ -26,8 +26,8 @@ public class inputnumber : MonoBehaviour
     public int countthird;
     public int countthirdtwo;
 
-    public int allthirdup;
-    public int allthirddown;
+    public float allthirdup;
+    public float allthirddown;
     public float allupdown;
 
     //insert keypad4
@@ -76,8 +76,8 @@ public class inputnumber : MonoBehaviour
     public Text pricecorrecttext;
 
     // percent quesiton random
-    public int blue;
-    public int red;
+    public float blue;
+    public float red;
     public int questionrandomcolor;
 
     public Text bluetext;
@@ -113,6 +113,9 @@ public class inputnumber : MonoBehaviour
 
     public Text percentcorrecttext;
 
+    public AudioSource correctsound;
+    public AudioSource uncorrectsound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -125,15 +128,15 @@ public class inputnumber : MonoBehaviour
         inputthird = new int[2];
         inputthirdtwo = new int[2];
         inputforth = new int[5];
+
+        
         
         randomquest();
 
         coinswitch();
         randomcolor();
         randomprice();
-
         
-
     }
 
     private void Awake()
@@ -209,7 +212,6 @@ public class inputnumber : MonoBehaviour
         }
        
     }
-
 
     public void click(int numbering)
     {
@@ -382,7 +384,7 @@ public class inputnumber : MonoBehaviour
                 resetbutton();
             calculatequestion.gameObject.SetActive(false);
             randomquest();
-
+            correctsound.Play();
             correctcount++;
             }
             else
@@ -390,6 +392,7 @@ public class inputnumber : MonoBehaviour
                 answertext.text = "uncorrect";
                 randomnumber();
                 resetbutton();
+            uncorrectsound.Play();
             calculatequestion.gameObject.SetActive(false);
             randomquest();
 
@@ -407,23 +410,26 @@ public class inputnumber : MonoBehaviour
             apple[coinranapple - 1].gameObject.SetActive(false);
             mikan[coinranmikan - 1].gameObject.SetActive(false);
 
-            coinquestion.gameObject.SetActive(false);
-
             coinswitch();
             resetbuttonsecond();
-            randomquest();
             correctcount++;
+            correctsound.Play();
+            coinquestion.gameObject.SetActive(false);
+            randomquest();
+
         }
-        if(allsecond != allprice)
+        else
         {
         pricecorrecttext.text = "uncorrect";
 
             apple[coinranapple - 1].gameObject.SetActive(false);
             mikan[coinranmikan - 1].gameObject.SetActive(false);
+            
+            uncorrectsound.Play();
+            resetbuttonsecond();
+            coinswitch();
             coinquestion.gameObject.SetActive(false);
             randomquest();
-            coinswitch();
-            resetbuttonsecond();
         }
 
 
@@ -435,21 +441,23 @@ public class inputnumber : MonoBehaviour
         {
             if(allthirdup/allthirddown == blue/(blue+ red))
             {
-                questionanswertext.text = "correct";
+                //questionanswertext.text = "correct";
                 randomcolor();
                 resetbuttonthird();
-                randomquest();
-                correctcount++;
-                questionquestion.gameObject.SetActive(false);
+                correctcount++;                
+                correctsound.Play();
+                //questionquestion.gameObject.SetActive(false);
+                //randomquest();
 
             }
-            else if(allthirdup / allthirddown != blue / (blue + red))
+            else 
             {
-                questionanswertext.text = "uncorrect";
+                //questionanswertext.text = "uncorrect";
                 randomcolor();
                 resetbuttonthird();
-                randomquest();
+                uncorrectsound.Play();
                 questionquestion.gameObject.SetActive(false);
+                randomquest();
             }
         }
 
@@ -457,21 +465,27 @@ public class inputnumber : MonoBehaviour
         {
             if (allthirdup / allthirddown == red / (blue + red))
             {
-                questionanswertext.text = "correct";
+                //questionanswertext.text = "correct";
                 randomcolor();
                 resetbuttonthird();
-                randomquest();
+                
                 correctcount++;
+                correctsound.Play();
                 questionquestion.gameObject.SetActive(false);
+                randomquest();
+
 
             }
-            else if(allthirdup / allthirddown != red / (blue + red))
+            else
             {
-                questionanswertext.text = "uncorrect";
+                //questionanswertext.text = "uncorrect";
                 randomcolor();
                 resetbuttonthird();
-                randomquest();
+                
+                uncorrectsound.Play();
                 questionquestion.gameObject.SetActive(false);
+                randomquest();
+
             }
         }
 
@@ -485,17 +499,20 @@ public class inputnumber : MonoBehaviour
         {
             percentcorrecttext.text = "correct";
             randomprice();
+            correctsound.Play();
             resetbuttonforth();
-            randomquest();
             percentquestion.gameObject.SetActive(false);
+            randomquest();
         }
-        else if(allforth != originalprice)
+        else
         {
             percentcorrecttext.text = "uncorrect";
             randomprice();
             resetbuttonforth();
-            randomquest();
+            uncorrectsound.Play();
             percentquestion.gameObject.SetActive(false);
+            randomquest();
+
         }
     }
 
@@ -515,47 +532,47 @@ public class inputnumber : MonoBehaviour
         switch (coinranapple)
         {
             case 1:
-                Debug.Log("1");
+                
                 apple[0].gameObject.SetActive(true);
                 break;
 
             case 2:
-                Debug.Log("2");
+                
                 apple[1].gameObject.SetActive(true);
                 break;
 
             case 3:
-                Debug.Log("3");
+                
                 apple[2].gameObject.SetActive(true);
                 break;
 
             case 4:
-                Debug.Log("4");
+                
                 apple[3].gameObject.SetActive(true);
                 break;
 
             case 5:
-                Debug.Log("5");
+                
                 apple[4].gameObject.SetActive(true);
                 break;
 
             case 6:
-                Debug.Log("6");
+                
                 apple[5].gameObject.SetActive(true);
                 break;
 
             case 7:
-                Debug.Log("7");
+                
                 apple[6].gameObject.SetActive(true);
                 break;
 
             case 8:
-                Debug.Log("8");
+                
                 apple[7].gameObject.SetActive(true);
                 break;
 
             case 9:
-                Debug.Log("9");
+                
                 apple[8].gameObject.SetActive(true);
                 break;
 
@@ -565,47 +582,47 @@ public class inputnumber : MonoBehaviour
         switch (coinranmikan)
         {
             case 1:
-                Debug.Log("1");
+                
                 mikan[0].gameObject.SetActive(true);
                 break;
 
             case 2:
-                Debug.Log("2");
+                
                 mikan[1].gameObject.SetActive(true);
                 break;
 
             case 3:
-                Debug.Log("3");
+                
                 mikan[2].gameObject.SetActive(true);
                 break;
 
             case 4:
-                Debug.Log("4");
+                
                 mikan[3].gameObject.SetActive(true);
                 break;
 
             case 5:
-                Debug.Log("5");
+                
                 mikan[4].gameObject.SetActive(true);
                 break;
 
             case 6:
-                Debug.Log("6");
+                
                 mikan[5].gameObject.SetActive(true);
                 break;
 
             case 7:
-                Debug.Log("7");
+                
                 mikan[6].gameObject.SetActive(true);
                 break;
 
             case 8:
-                Debug.Log("8");
+                
                 mikan[7].gameObject.SetActive(true);
                 break;
 
             case 9:
-                Debug.Log("9");
+                
                 mikan[8].gameObject.SetActive(true);
                 break;
 
@@ -621,19 +638,22 @@ public class inputnumber : MonoBehaviour
         if (randomquestion == 1)
         {
             calculatequestion.gameObject.SetActive(true);
+            Debug.Log("stage1");
         }
-
         if(randomquestion == 2)
         {
             coinquestion.gameObject.SetActive(true);
+            Debug.Log("stage2");
         }
         if(randomquestion == 3)
         {
             questionquestion.gameObject.SetActive(true);
+            Debug.Log("stage3");
         }
         if(randomquestion == 4)
         {
             percentquestion.gameObject.SetActive(true);
+            Debug.Log("stage4");
         }
 
 
@@ -672,22 +692,22 @@ public class inputnumber : MonoBehaviour
         switch (saleswitch)
         {
             case 1:
-                Debug.Log(saleswitch);
+                
                 sale = 90;
                 break;
 
             case 2:
-                Debug.Log(saleswitch);
+                
                 sale = 75;
                 break;
 
             case 3:
-                Debug.Log(saleswitch);
+                
                 sale = 50;
                 break;
 
             case 4:
-                Debug.Log(saleswitch);
+                
                 sale = 80;
                 break;
         }
@@ -695,29 +715,29 @@ public class inputnumber : MonoBehaviour
         switch (pricepercentswitch)
         {
             case 1:
-                Debug.Log(pricepercentswitch);
+                
                 pricepercent = 10;
                 break;
 
             case 2:
-                Debug.Log(pricepercentswitch);
+                
                 pricepercent = 20;
                 break;
 
             case 3:
-                Debug.Log(pricepercentswitch);
+                
                 pricepercent = 25;
                 break;
 
             case 4:
-                Debug.Log(pricepercentswitch);
+                
                 pricepercent = 50;
                 break;
         }
 
         originapricefirst = afterprice * (100 / (100 - sale));
         originalprice = originapricefirst * (100 / pricepercent);
-        Debug.Log(originalprice);
+        
 
         percenttext.text = pricepercent.ToString();
         saletext.text = sale.ToString();
