@@ -19,10 +19,16 @@ public class inputnumber : MonoBehaviour
 
     //insert keypad3
     [SerializeField] private Text numberthird;
+    [SerializeField] private Text numberthirdtwo;
     public int[] inputthird;
+    public int[] inputthirdtwo;
+
     public int countthird;
+    public int countthirdtwo;
+
     public int allthirdup;
     public int allthirddown;
+    public float allupdown;
 
     //insert keypad4
     [SerializeField] private Text numberforth;
@@ -88,6 +94,7 @@ public class inputnumber : MonoBehaviour
     public GameObject calculatequestion;
     public GameObject coinquestion;
     public GameObject questionquestion;
+    public GameObject percentquestion;
 
     //price random
     public float originalprice;
@@ -115,16 +122,17 @@ public class inputnumber : MonoBehaviour
         
         input = new int[4];
         inputsecond = new int[4];
-        inputthird = new int[4];
+        inputthird = new int[2];
+        inputthirdtwo = new int[2];
         inputforth = new int[5];
         
-        //randomquest();
+        randomquest();
 
         coinswitch();
         randomcolor();
         randomprice();
 
-        //calculatequestion.gameObject.SetActive(true);
+        
 
     }
 
@@ -151,21 +159,34 @@ public class inputnumber : MonoBehaviour
 
         answer = rantwo + ranone;
 
-
-        all = input[3] + input[2] * 10 + input[1] * 100 + input[0] * 1000;
+        if(answer>= 1000)
+        {
+            all = input[3] + input[2] * 10 + input[1] * 100 + input[0] * 1000;
+        }
+        else if(answer < 1000)
+        {
+            all = input[3] + input[2] * 10 + input[1] * 100;
+        }
+        
     }
 
     void randomtextsecond()
     {
-        allsecond = inputsecond[3] + inputsecond[2] * 10 + inputsecond[1] * 100 + inputsecond[0] * 1000;
+        if(allprice>= 1000)
+        {
+            allsecond = inputsecond[3] + inputsecond[2] * 10 + inputsecond[1] * 100 + inputsecond[0] * 1000;
+        }
+        else if (all < 1000)
+        {
+            allsecond = inputsecond[3] + inputsecond[2] * 10 + inputsecond[1] * 100 ;
+        }
 
     }
 
     public void randomtextthird()
     {
-        allthirddown = inputthird[3] + inputthird[2] * 10;
-        allthirdup = inputthird[1] + inputthird[0] * 10;
-
+        allthirddown = inputthirdtwo[1] + inputthirdtwo[0] * 10;
+        allthirdup = inputthird[1] + inputthird[0] * 10;       
     }
 
     public void randomtextforth()
@@ -192,29 +213,55 @@ public class inputnumber : MonoBehaviour
 
     public void click(int numbering)
     {
-        if (count < 4)
+        if (answer >= 1000)
         {
-            input[count] = numbering;
-            number.text = string.Join("", input);
-            count++;
+            if (count < 4)
+            {
+                input[count] = numbering;
+                number.text = string.Join("", input);
+                count++;
+            }
+        }
+
+        else if(answer < 1000)
+        {
+            if (count < 3)
+            {
+                input[count+1] = numbering;
+                number.text = string.Join("", input);
+                count++;
+            }
         }
 
     }
 
     public void clicksecond(int numberingsecond)
     {
-        if (countsecond < 4)
+        if (allprice >= 1000)
         {
-            inputsecond[countsecond] = numberingsecond;
-            numbersecond.text = string.Join("", inputsecond);
-            countsecond++;
+            if (countsecond < 4)
+            {
+                inputsecond[countsecond] = numberingsecond;
+                numbersecond.text = string.Join("", inputsecond);
+                countsecond++;
+            }
         }
+        else if (allprice < 1000)
+        {
+            if (countsecond < 3)
+            {
+                inputsecond[countsecond+1] = numberingsecond;
+                numbersecond.text = string.Join("", inputsecond);
+                countsecond++;
+            }
+        }
+        
 
     }
 
     public void clickthird(int numberingthird)
     {
-        if(countthird <4)
+        if(countthird <2)
         {
             
                 inputthird[countthird] = numberingthird;
@@ -222,6 +269,16 @@ public class inputnumber : MonoBehaviour
                 countthird++;
             
         }
+        else
+        {
+                if (countthirdtwo < 2)
+                {
+                    inputthirdtwo[countthirdtwo] = numberingthird;
+                    numberthirdtwo.text = string.Join(" ", inputthirdtwo);
+                    countthirdtwo++;
+                }  
+        }
+        
     }
 
     public void clickforth(int numberingforth)
@@ -234,6 +291,8 @@ public class inputnumber : MonoBehaviour
                 inputforth[countforth] = numberingforth;
                 numberforth.text = string.Join(" ", inputforth);
                 countforth++;
+
+
 
             }
         }
@@ -281,11 +340,15 @@ public class inputnumber : MonoBehaviour
 
     public void resetbuttonthird()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 2; i++)
         {
             inputthird[i] = 0;
+            inputthirdtwo[i] = 0;
             numberthird.text = string.Join("", inputthird);
+            numberthirdtwo.text = string.Join("", inputthirdtwo);
+
             countthird = 0;
+            countthirdtwo = 0;
         }
     }
 
@@ -351,7 +414,7 @@ public class inputnumber : MonoBehaviour
             randomquest();
             correctcount++;
         }
-        else
+        if(allsecond != allprice)
         {
         pricecorrecttext.text = "uncorrect";
 
@@ -370,7 +433,7 @@ public class inputnumber : MonoBehaviour
     {
         if(questionrandomcolor == 1)
         {
-            if(allthirddown == blue+ red && allthirdup == blue)
+            if(allthirdup/allthirddown == blue/(blue+ red))
             {
                 questionanswertext.text = "correct";
                 randomcolor();
@@ -380,7 +443,7 @@ public class inputnumber : MonoBehaviour
                 questionquestion.gameObject.SetActive(false);
 
             }
-            else
+            else if(allthirdup / allthirddown != blue / (blue + red))
             {
                 questionanswertext.text = "uncorrect";
                 randomcolor();
@@ -392,7 +455,7 @@ public class inputnumber : MonoBehaviour
 
         if (questionrandomcolor == 2)
         {
-            if (allthirddown == blue + red && allthirdup == red)
+            if (allthirdup / allthirddown == red / (blue + red))
             {
                 questionanswertext.text = "correct";
                 randomcolor();
@@ -402,7 +465,7 @@ public class inputnumber : MonoBehaviour
                 questionquestion.gameObject.SetActive(false);
 
             }
-            else
+            else if(allthirdup / allthirddown != red / (blue + red))
             {
                 questionanswertext.text = "uncorrect";
                 randomcolor();
@@ -423,12 +486,16 @@ public class inputnumber : MonoBehaviour
             percentcorrecttext.text = "correct";
             randomprice();
             resetbuttonforth();
+            randomquest();
+            percentquestion.gameObject.SetActive(false);
         }
-        else
+        else if(allforth != originalprice)
         {
             percentcorrecttext.text = "uncorrect";
             randomprice();
             resetbuttonforth();
+            randomquest();
+            percentquestion.gameObject.SetActive(false);
         }
     }
 
@@ -549,7 +616,7 @@ public class inputnumber : MonoBehaviour
 
     public void randomquest()
     {
-        randomquestion = Random.Range(1, 4);
+        randomquestion = Random.Range(1, 5);
 
         if (randomquestion == 1)
         {
@@ -563,6 +630,10 @@ public class inputnumber : MonoBehaviour
         if(randomquestion == 3)
         {
             questionquestion.gameObject.SetActive(true);
+        }
+        if(randomquestion == 4)
+        {
+            percentquestion.gameObject.SetActive(true);
         }
 
 
