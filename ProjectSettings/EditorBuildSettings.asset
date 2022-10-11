@@ -5,22 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
+    path: Assets/song/testcoin.unity
+    guid: 9f02d5d7859d7491ebe466f6fc0b5fd0
+  - enabled: 0
     path: Assets/Hamaaan/Scenes/TITLE.unity
     guid: d5ff84e3fdaa3e24ea733bb4f94f84b2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Hamaaan/Scenes/MainVIEWER.unity
     guid: fbf07add4e281204b87cf06dc6413051
-  - enabled: 1
+  - enabled: 0
     path: Assets/Hamaaan/Scenes/RESULT.unity
     guid: e6d4fed0e032de342902796318073fd6
   - enabled: 0
     path: Assets/Hamaaan/Scenes/STATUS.unity
     guid: caaca5bf39bc3c64a9bcaf2a3b4c53f0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Hamaaan/Scenes/minigames/IQ_KigouSagashi.unity
     guid: 3b73f75adec2df048896f96945ebfc4c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Hamaaan/Scenes/minigames/IQ_NumberChant.unity
     guid: 5c1ab8d08f03f344fad3d20debbb19b6
   m_configObjects: {}
