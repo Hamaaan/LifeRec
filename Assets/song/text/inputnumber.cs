@@ -260,7 +260,6 @@ public class inputnumber : MonoBehaviour
         
 
     }
-
     public void clickthird(int numberingthird)
     {
         if(countthird <2)
@@ -446,8 +445,9 @@ public class inputnumber : MonoBehaviour
                 resetbuttonthird();
                 correctcount++;                
                 correctsound.Play();
-                //questionquestion.gameObject.SetActive(false);
-                //randomquest();
+                questionquestion.gameObject.SetActive(false);
+                randomquest();
+                Debug.Log("1");
 
             }
             else 
@@ -458,6 +458,7 @@ public class inputnumber : MonoBehaviour
                 uncorrectsound.Play();
                 questionquestion.gameObject.SetActive(false);
                 randomquest();
+                Debug.Log("2");
             }
         }
 
@@ -467,12 +468,12 @@ public class inputnumber : MonoBehaviour
             {
                 //questionanswertext.text = "correct";
                 randomcolor();
-                resetbuttonthird();
-                
+                resetbuttonthird();                
                 correctcount++;
                 correctsound.Play();
                 questionquestion.gameObject.SetActive(false);
                 randomquest();
+                Debug.Log("3");
 
 
             }
@@ -481,10 +482,10 @@ public class inputnumber : MonoBehaviour
                 //questionanswertext.text = "uncorrect";
                 randomcolor();
                 resetbuttonthird();
-                
                 uncorrectsound.Play();
                 questionquestion.gameObject.SetActive(false);
                 randomquest();
+                Debug.Log("4");
 
             }
         }
