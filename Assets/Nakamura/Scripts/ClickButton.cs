@@ -5,24 +5,17 @@ using UnityEngine.UI;
 
 public class ClickButton : MonoBehaviour
 {
-    [SerializeField] private Text Numtext;
-    public string[] InputNumbers = new string[4];
-    public int count;
+    /*
+    Button btn;
 
     private void Start()
     {
-        count = 0;
-       
+        btn.interactable = false;
     }
 
-    public void OnClick(int num)
+    private void Update()
     {
-        if (count < 4)
-        {
-            InputNumbers[count] = "" + num;
-            Numtext.text = string.Join("", InputNumbers);
-            count++;
-        }
+
     }
-    
+    */
 }

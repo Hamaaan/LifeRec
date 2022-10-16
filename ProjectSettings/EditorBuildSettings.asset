@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Hamaaan/Scenes/minigames/IQ_NumberChant.unity
     guid: 5c1ab8d08f03f344fad3d20debbb19b6
+  - enabled: 1
+    path: Assets/Nakamura/Scenes/FinishScene.unity
+    guid: 0d002d6307b35471ba05d73976bbe807
+  - enabled: 1
+    path: Assets/Nakamura/Scenes/IQ_NumberChant 1.unity
+    guid: 51e78097c20b241249cfeccfa84c4aae
   m_configObjects: {}
