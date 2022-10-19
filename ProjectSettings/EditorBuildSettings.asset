@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Nakamura/Scenes/IQ_NumberChant 1.unity
     guid: 51e78097c20b241249cfeccfa84c4aae
+  - enabled: 1
+    path: Assets/HouchiDungeon/StaticResources/Scenes/Home.unity
+    guid: 0e060a8e5795744878be55583968cf98
+  - enabled: 1
+    path: Assets/HouchiDungeon/StaticResources/Scenes/Dungeon001.unity
+    guid: bde98fec761423e4f9da2092286b5d43
   m_configObjects: {}

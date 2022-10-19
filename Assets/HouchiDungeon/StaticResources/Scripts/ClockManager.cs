@@ -45,7 +45,6 @@ public class ClockManager : MonoBehaviour
                 internel_timer = 0f;
             }
         }
-        
     }
 
     void LoadHome()
