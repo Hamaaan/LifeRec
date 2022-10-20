@@ -68,7 +68,7 @@ Material:
     - _ColorMask: 15
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DotRadius: 0.24
+    - _DotRadius: 0.4
     - _DotRepeater: 100
     - _DstBlend: 0
     - _GlossMapScale: 1

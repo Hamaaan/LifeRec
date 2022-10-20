@@ -32,7 +32,7 @@ public class EnemySpawn : MonoBehaviour
             enemy.GetComponent<SpriteRenderer>().material.color = new Color(r,g,b,1) * 2f;
 
             enemy.transform.SetParent(this.gameObject.transform);
-            enemy.transform.position += new Vector3(((i+1) * Random.Range(3f,10f)), 0, 1);
+            enemy.transform.position += new Vector3(((i+1) * Random.Range(5f,10f)), 0, 1);
         }
     }
 }
