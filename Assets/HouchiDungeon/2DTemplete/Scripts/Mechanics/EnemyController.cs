@@ -23,7 +23,7 @@ namespace Platformer.Mechanics
         internal AnimationController control;
         internal Collider2D _collider;
         internal AudioSource _audio;
-        SpriteRenderer spriteRenderer;
+        [SerializeField]SpriteRenderer spriteRenderer;
         
         //追記部分
         public float EnemyHP;
@@ -43,7 +43,7 @@ namespace Platformer.Mechanics
             control = GetComponent<AnimationController>();
             _collider = GetComponent<Collider2D>();
             _audio = GetComponent<AudioSource>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = spriteRenderer.GetComponent<SpriteRenderer>();
 
             EnemyHP = Random.Range(MinHP, MaxHP);
             slider = slider.GetComponent<Slider>();
