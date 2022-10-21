@@ -7,10 +7,13 @@
 
 // Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
 
-Shader "UI/Original/Default"
+Shader "UI/Original/UVScroll"
 {
     Properties
     {
+        _Scroll_x("Scroll_x", Float) = 0
+        _Scroll_y("Scroll_y", Float) = 0
+
         [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
         _Color("Tint", Color) = (1,1,1,1)
         _Color("Tint", Color) = (1,1,1,1)
@@ -96,6 +99,9 @@ Shader "UI/Original/Default"
                 float _DotRadius;
                 half _Hue, _Sat, _Val;
 
+                float _Scroll_x;
+                float _Scroll_y;
+
                 v2f vert(appdata_t v)
                 {
                     v2f OUT;
@@ -105,6 +111,9 @@ Shader "UI/Original/Default"
                     OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);
 
                     OUT.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
+                    
+                    OUT.texcoord.x += _Scroll_x;
+                    OUT.texcoord.y += _Scroll_y;
 
                     OUT.color = v.color * _Color;
 
@@ -136,6 +145,7 @@ Shader "UI/Original/Default"
 
                 fixed4 frag(v2f IN) : SV_Target
                 {
+
                     half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 
                     #ifdef UNITY_UI_CLIP_RECT
