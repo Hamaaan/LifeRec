@@ -58,6 +58,13 @@ namespace Platformer.Mechanics
 
         protected override void Update()
         {
+            if (StaticValueManager.instance.isDungeonClear)
+            {
+                moveSpeed = 0;
+                animator.SetBool("Clear", true);
+
+            }
+
             if (controlEnabled)
             {
                 //move.x = Input.GetAxis("Horizontal");

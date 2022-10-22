@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/HouchiDungeon/StaticResources/Scenes/Dungeon001.unity
     guid: bde98fec761423e4f9da2092286b5d43
   - enabled: 1
+    path: Assets/Hamaaan/Scenes/HouchDungeon/Start.unity
+    guid: e4aee9184d4a5f94f89437bb355867d2
+  - enabled: 1
     path: Assets/Hamaaan/Scenes/HouchDungeon/Home.unity
     guid: 9e60314d9483c724493a196035f3af58
   - enabled: 1
