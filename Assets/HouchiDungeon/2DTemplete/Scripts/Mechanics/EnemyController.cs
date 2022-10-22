@@ -30,6 +30,7 @@ namespace Platformer.Mechanics
         public float MinHP = 2f;
         public float MaxHP = 4f;
         Rigidbody2D rb;
+        [SerializeField] bool isFly = false;
 
         [SerializeField] GameObject DamageEffectPrefab;
         [SerializeField] GameObject DamageEffectPoint;

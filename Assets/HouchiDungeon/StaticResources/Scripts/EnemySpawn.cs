@@ -24,7 +24,7 @@ public class EnemySpawn : MonoBehaviour
     {
         for (int i = 0; i < enemyCount; i++)
         {
-            GameObject enemy = Instantiate(EnemyPrefabs[EnemyPrefabs.Length - 1]);
+            GameObject enemy = Instantiate(EnemyPrefabs[Random.Range(0, (EnemyPrefabs.Length))]);
 
             float r = Random.Range(0,1f);
             float g = Random.Range(0,1-r);
@@ -32,7 +32,11 @@ public class EnemySpawn : MonoBehaviour
             enemy.GetComponent<SpriteRenderer>().material.color = new Color(r,g,b,1) * 2f;
 
             enemy.transform.SetParent(this.gameObject.transform);
-            enemy.transform.position += new Vector3(((i+1) * Random.Range(5f,10f)), 0, 1);
+            enemy.transform.position += new Vector3(((i+1) * Random.Range(8f,10f)), 0, 1);
+            if (enemy.name == "BirdEnemy(Clone)")
+            {
+                enemy.transform.position += new Vector3(0, Random.Range(2, 3), 1);
+            }
         }
     }
 }
