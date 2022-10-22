@@ -17,7 +17,7 @@ public class TimeScaler : MonoBehaviour
     }
 
 
-    bool toggle = false;
+    bool toggle = true;
     public void SetTimeScale(float scale)
     {
         if (toggle)

@@ -48,6 +48,7 @@ public class DungeonTimerManager : MonoBehaviour
     {
         StaticValueManager.instance.isRestTime = true;
         StaticValueManager.instance.isDungeonClear = true;
+        Invoke("LoadHome", 5f);
     }
 
     void TimeCounter()
@@ -73,6 +74,11 @@ public class DungeonTimerManager : MonoBehaviour
                 internel_timer = 0f;
             }
         }
+    }
+
+    void LoadHome()
+    {
+        SceneManager.LoadScene("Home");
     }
 
 

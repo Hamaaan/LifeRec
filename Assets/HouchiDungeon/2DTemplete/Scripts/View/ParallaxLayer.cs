@@ -17,12 +17,12 @@ namespace Platformer.View
 
         void Awake()
         {
-            _camera = Camera.main.transform;
+            //_camera = Camera.main.transform;
         }
 
         void LateUpdate()
         {
-            transform.position = Vector3.Scale(_camera.position, movementScale);
+            transform.position = Vector3.Scale(Camera.main.transform.position, movementScale);
         }
 
     }

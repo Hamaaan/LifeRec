@@ -34,6 +34,7 @@ public class StaticValueManager : MonoBehaviour
 
     //Dungeon
     public bool isDungeonClear = false;
+    public bool isSpecial = false;
 
     //Home
     public bool isRestTime = false;

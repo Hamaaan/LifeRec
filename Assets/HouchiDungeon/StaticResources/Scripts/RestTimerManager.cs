@@ -19,6 +19,7 @@ public class RestTimerManager : MonoBehaviour
     {
         clock = GetComponent<Text>();
         SetTime(setTimeMin, setTimeSec);
+
     }
 
     private void OnEnable()
@@ -61,6 +62,12 @@ public class RestTimerManager : MonoBehaviour
         setTimeMin = Min;
         setTimeSec = Sec;
         setTimer = new TimeSpan(0, setTimeMin, setTimeSec);
+    }
+
+    public void SetTimeMin(int Sec)
+    {
+        setTimeSec = Sec;
+        setTimer = new TimeSpan(0, 0, setTimeSec);
     }
 
     public void SetTimeSec(int Sec)
