@@ -67,6 +67,10 @@ public class DungeonTimerManager : MonoBehaviour
         }
         else
         {
+            if (new TimeSpan(0, 5, 0) >= setTimer)
+            {
+                //time for bonus/rush
+            }
             //Timerのカウント
             if (internel_timer > 1f)
             {
