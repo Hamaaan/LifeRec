@@ -6,6 +6,16 @@ TagManager:
   tags:
   - KS_Target
   - Enemy
+  - WhitePiece
+  - BlackPiece
+  - BlackhalfPiece1
+  - BlackhalfPiece2
+  - BlackhalfPiece3
+  - BlackhalfPiece4
+  - WhitehalfPiece1
+  - WhitehalfPiece2
+  - WhitehalfPiece3
+  - WhitehalfPiece4
   layers:
   - Default
   - TransparentFX

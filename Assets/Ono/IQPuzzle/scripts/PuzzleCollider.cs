@@ -4,10 +4,35 @@ using UnityEngine;
 
 public class PuzzleCollider : MonoBehaviour
 {
-
-    void OnCollisionStay2D(Collision2D collision)
+    public bool Correct;
+    [SerializeField]
+    private GameObject CorrectPiece;
+    void Start()
     {
-        Debug.Log("当たっている");
+        Correct = false;
+        GetTag();
+    }
+
+    public void GetTag()
+    {
+        Debug.Log(CorrectPiece.tag);
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("すり抜けている");
+        
+        if(other.CompareTag("WhitePiece")){
+            //Debug.Log("白ピースきちゃ！");
+        
+        Correct = true;
+
+        if(Correct == true)
+        {
+        Debug.Log(this.gameObject.name);
+        }
+
+    }
     }
 
 }
