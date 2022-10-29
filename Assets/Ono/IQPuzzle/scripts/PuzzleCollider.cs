@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PuzzleCollider : MonoBehaviour
 {
-    public bool Correct;
+
     [SerializeField]
     private GameObject CorrectPiece;
+    public int ClearNumber;
+    private bool Correct;
+
     void Start()
     {
         Correct = false;
@@ -18,20 +21,30 @@ public class PuzzleCollider : MonoBehaviour
         Debug.Log(CorrectPiece.tag);
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("すり抜けている");
+        Debug.Log("触れた");
         
-        if(other.CompareTag("WhitePiece")){
-            //Debug.Log("白ピースきちゃ！");
-        
+        if(other.CompareTag(CorrectPiece.tag)){
+
         Correct = true;
+        ClearNumber =ClearNumber+1;
+        Debug.Log(ClearNumber);
+        
 
-        if(Correct == true)
-        {
-        Debug.Log(this.gameObject.name);
-        }
+    }
+    }
 
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("抜けた");
+        
+        if(other.CompareTag(CorrectPiece.tag)){
+      
+        Correct = false;
+        ClearNumber = ClearNumber-1;
+        Debug.Log(ClearNumber);
+        
     }
     }
 
