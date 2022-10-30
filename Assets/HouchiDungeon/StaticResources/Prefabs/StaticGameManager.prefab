@@ -640,7 +640,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -10
   m_TargetDisplay: 0
 --- !u!114 &3911651046814667390
 MonoBehaviour:
@@ -11962,6 +11962,11 @@ MonoBehaviour:
   LevelText: {fileID: 6270962734616111353}
   ExpText: {fileID: 6270962734615421932}
   RadarPolygon: {fileID: 6270962733869371011}
+  RatioHP: 0
+  RatioSpeed: 0
+  RatioRange: 0
+  RatioDefence: 0
+  RatioPower: 0
 --- !u!1 &8424221732414805343
 GameObject:
   m_ObjectHideFlags: 0
