@@ -13,8 +13,6 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         spm = GetComponent<SpawnColliderManager>();
-        GenerateEnemys();
-
     }
 
     // Update is called once per frame
@@ -28,7 +26,7 @@ public class EnemySpawn : MonoBehaviour
 
     public void GenerateEnemys()
     {
-        GameObject enemy = Instantiate(EnemyPrefabs[Random.Range(0, (EnemyPrefabs.Length-1))]);
+        GameObject enemy = Instantiate(EnemyPrefabs[Random.Range(0, (EnemyPrefabs.Length))]);
 
         float r = Random.Range(0, 1f);
         float g = Random.Range(0, 1 - r);
