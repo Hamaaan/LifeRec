@@ -5684,6 +5684,11 @@ MonoBehaviour:
   PlayerRange: 5
   PlayerSpeed: 5
   NumberOfKills: 0
+  MaxPlayerHP: 10
+  MaxPlayerPower: 10
+  MaxPlayerDefence: 10
+  MaxPlayerRange: 10
+  MaxPlayerSpeed: 10
   isDungeonClear: 0
   isSpecial: 0
   isRestTime: 0
@@ -7151,7 +7156,7 @@ MonoBehaviour:
   MaxVolume: 1
   Volumes:
   - 0.58
-  - 0.49
+  - 0.5
   - 1
   - 1
   - 1
@@ -11956,6 +11961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelText: {fileID: 6270962734616111353}
   ExpText: {fileID: 6270962734615421932}
+  RadarPolygon: {fileID: 6270962733869371011}
 --- !u!1 &8424221732414805343
 GameObject:
   m_ObjectHideFlags: 0

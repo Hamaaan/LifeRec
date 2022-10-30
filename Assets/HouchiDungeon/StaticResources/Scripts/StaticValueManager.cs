@@ -32,6 +32,12 @@ public class StaticValueManager : MonoBehaviour
     public float PlayerSpeed = 5;
     public int NumberOfKills = 0;
 
+    public float MaxPlayerHP = 10;
+    public float MaxPlayerPower = 10;
+    public float MaxPlayerDefence = 10;
+    public float MaxPlayerRange = 10;
+    public float MaxPlayerSpeed = 10;
+
     //Dungeon
     public bool isDungeonClear = false;
     public bool isSpecial = false;
