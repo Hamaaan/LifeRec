@@ -6,6 +6,7 @@ TagManager:
   tags:
   - KS_Target
   - Enemy
+<<<<<<< Updated upstream
   - WhitePiece
   - BlackPiece
   - BlackhalfPiece1
@@ -16,6 +17,8 @@ TagManager:
   - WhitehalfPiece2
   - WhitehalfPiece3
   - WhitehalfPiece4
+=======
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

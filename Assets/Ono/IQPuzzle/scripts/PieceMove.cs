@@ -23,7 +23,10 @@ public class PieceMove : MonoBehaviour
         
         //Cubeの位置を、pointWorldにする
         transform.position = pointWorld;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     }
 
 }

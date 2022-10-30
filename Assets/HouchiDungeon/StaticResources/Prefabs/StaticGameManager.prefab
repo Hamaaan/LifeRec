@@ -640,7 +640,11 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
+<<<<<<< Updated upstream
   m_SortingOrder: -10
+=======
+  m_SortingOrder: -5
+>>>>>>> Stashed changes
   m_TargetDisplay: 0
 --- !u!114 &3911651046814667390
 MonoBehaviour:
@@ -5660,7 +5664,10 @@ Transform:
   - {fileID: 3208747923291830149}
   - {fileID: 6599527985455644760}
   - {fileID: 4455456302736694546}
+<<<<<<< Updated upstream
   - {fileID: 3378603423931236197}
+=======
+>>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5684,11 +5691,14 @@ MonoBehaviour:
   PlayerRange: 5
   PlayerSpeed: 5
   NumberOfKills: 0
+<<<<<<< Updated upstream
   MaxPlayerHP: 10
   MaxPlayerPower: 10
   MaxPlayerDefence: 10
   MaxPlayerRange: 10
   MaxPlayerSpeed: 10
+=======
+>>>>>>> Stashed changes
   isDungeonClear: 0
   isSpecial: 0
   isRestTime: 0
@@ -7156,7 +7166,11 @@ MonoBehaviour:
   MaxVolume: 1
   Volumes:
   - 0.58
+<<<<<<< Updated upstream
   - 0.5
+=======
+  - 0.49
+>>>>>>> Stashed changes
   - 1
   - 1
   - 1
@@ -11916,6 +11930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+<<<<<<< Updated upstream
 --- !u!1 &8420614035928492112
 GameObject:
   m_ObjectHideFlags: 0
@@ -11967,6 +11982,8 @@ MonoBehaviour:
   RatioRange: 0
   RatioDefence: 0
   RatioPower: 0
+=======
+>>>>>>> Stashed changes
 --- !u!1 &8424221732414805343
 GameObject:
   m_ObjectHideFlags: 0

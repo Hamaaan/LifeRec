@@ -32,12 +32,15 @@ public class StaticValueManager : MonoBehaviour
     public float PlayerSpeed = 5;
     public int NumberOfKills = 0;
 
+<<<<<<< Updated upstream
     public float MaxPlayerHP = 10;
     public float MaxPlayerPower = 10;
     public float MaxPlayerDefence = 10;
     public float MaxPlayerRange = 10;
     public float MaxPlayerSpeed = 10;
 
+=======
+>>>>>>> Stashed changes
     //Dungeon
     public bool isDungeonClear = false;
     public bool isSpecial = false;
@@ -48,8 +51,27 @@ public class StaticValueManager : MonoBehaviour
     //TimerSetting
     public bool isTimerOn = false;
     public bool isTimerStart = false;
+<<<<<<< Updated upstream
+=======
 
 
+    public TimeSpan RestTimerValue;
+
+    //SceneManager
+    public string ActiveSceneName;
+
+    private void Start()
+    {
+        SceneManager.activeSceneChanged += ActiveSceneChanged;
+>>>>>>> Stashed changes
+
+    }
+    void ActiveSceneChanged(Scene thisScene, Scene nextScene)
+    {
+        //SceneBGM
+        ActiveSceneName = SceneManager.GetActiveScene().name;
+
+<<<<<<< Updated upstream
     public TimeSpan RestTimerValue;
 
     //SceneManager
@@ -65,6 +87,8 @@ public class StaticValueManager : MonoBehaviour
         //SceneBGM
         ActiveSceneName = SceneManager.GetActiveScene().name;
 
+=======
+>>>>>>> Stashed changes
         if (ActiveSceneName == "Home")
         {
             isDungeonClear = false;

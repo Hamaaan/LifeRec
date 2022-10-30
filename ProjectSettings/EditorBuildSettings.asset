@@ -32,6 +32,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Nakamura/Scenes/IQ_NumberChant 1.unity
     guid: 51e78097c20b241249cfeccfa84c4aae
+<<<<<<< Updated upstream
+=======
+  - enabled: 0
+    path: Assets/HouchiDungeon/StaticResources/Scenes/Home.unity
+    guid: 0e060a8e5795744878be55583968cf98
+  - enabled: 0
+    path: Assets/HouchiDungeon/StaticResources/Scenes/Dungeon001.unity
+    guid: bde98fec761423e4f9da2092286b5d43
+>>>>>>> Stashed changes
   - enabled: 1
     path: Assets/Hamaaan/Scenes/HouchDungeon/Start.unity
     guid: e4aee9184d4a5f94f89437bb355867d2
@@ -41,10 +50,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Hamaaan/Scenes/HouchDungeon/Dungeon001.unity
     guid: fad55e7f82faa234b8e561567433cecc
+<<<<<<< Updated upstream
   - enabled: 0
     path: Assets/Hamaaan/Scenes/HouchDungeon/1030/Home.unity
     guid: 20f37c60ef072ff40a099ba0ac209b4b
   - enabled: 0
     path: Assets/Hamaaan/Scenes/HouchDungeon/1030/Dungeon001.unity
     guid: 99691cae0d8e4024f9c86e4dd5429904
+=======
+>>>>>>> Stashed changes
   m_configObjects: {}

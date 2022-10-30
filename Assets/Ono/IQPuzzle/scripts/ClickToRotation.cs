@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class ClickToRotation : MonoBehaviour
 {
      [SerializeField]
+<<<<<<< Updated upstream
     private GameObject NextRotation;
     [SerializeField]
     private GameObject PieceSet;
@@ -17,6 +18,17 @@ public class ClickToRotation : MonoBehaviour
         Instantiate(NextRotation, new Vector3(tmp.x, tmp.y, tmp.z), Quaternion.identity,parent);
         Destroy( this.gameObject );
         Debug.Log("タッチされたにゃー");
+=======
+    [Tooltip("NextRotation")]
+    private GameObject NextRotation;
+
+    public void onClickAct()
+     {  
+        Vector3 tmp = this.gameObject.transform.position;
+        Instantiate(NextRotation, new Vector3(tmp.x, tmp.y, tmp.z), Quaternion.identity);
+        Destroy( this.gameObject );
+        //Debug.Log("タッチされたにゃー");
+>>>>>>> Stashed changes
 
     }
 }
